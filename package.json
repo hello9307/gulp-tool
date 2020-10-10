@@ -1,0 +1,7 @@
+{
+  "name": "gulp-tool",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "zhangqi <2567780905@qq.com>",
+  "license": "MIT"
+}
