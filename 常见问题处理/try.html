@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let p1 = [];
+    for(let i=0;i<9;i++){
+        p1.push(new Promise(resolve => {
+            let time = Math.random()*10000
+            setTimeout(function () {
+                console.log(time)
+                resolve();
+            },time)
+        }))
+    }
+    let pa1 = new Promise(resolve => {
+        Promise.all(p1)
+            .then(res => {
+                console.log('all 1')
+                resolve()
+            })
+    });
+
+    let p2 = [];
+    for(let i=0;i<9;i++){
+        p2.push(new Promise(resolve => {
+            let time = Math.random()*10000
+            setTimeout(function () {
+                console.log(time)
+                resolve();
+            },time)
+        }))
+    }
+    let pa2 = new Promise(resolve => {
+        Promise.all(p2)
+            .then(res => {
+                console.log('all 2')
+                resolve()
+            })
+    });
+
+    Promise.all([pa1, pa2])
+        .then(res => {
+            console.log('all')
+            console.log(res)
+        })
+
+
+</script>
+</body>
+</html>
